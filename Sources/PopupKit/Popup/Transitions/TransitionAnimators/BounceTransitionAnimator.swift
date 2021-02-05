@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 public final class BounceTransitionAnimator: TransitionAnimator {
     
     // MARK: - Properties
@@ -69,6 +68,5 @@ public final class BounceTransitionAnimator: TransitionAnimator {
     override func animatingDimissalTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let swipeHeight = self.getSwipeHeight(using: transitionContext)
         fromView.frame.origin.y = fromView.frame.origin.y + swipeHeight
-        fromView.alpha = 0
     }
 }
