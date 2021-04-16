@@ -86,8 +86,8 @@ public class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
                 guard let self = self else { return }
                 self.animatingDimissalTransition(using: transitionContext)
             }, completion: { finished in
-                print("animation completed: \(finished)")
-                print("transitionWasCancelled: \(transitionContext.transitionWasCancelled)")
+                //print("animation completed: \(finished)")
+                //print("transitionWasCancelled: \(transitionContext.transitionWasCancelled)")
                 
                 if self.presentationTransition == .dismiss &&
                    finished &&

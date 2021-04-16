@@ -47,6 +47,10 @@ public struct PopupFrameManager {
         case .minimumRequiredHeight:
             size = CGSize.getSizeWithFittingHeight(view: popupView, andRequiredWidth: UIScreen.main.bounds.width)
             break
+        case .fixedHeight(let height):
+            size = CGSize(width: UIScreen.main.bounds.width,
+                          height: height)
+            break
         }
         
         if popupSize == .minimumRequiredHeight {

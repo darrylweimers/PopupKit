@@ -22,6 +22,7 @@ public final class PresentationController: BasePresentationController {
         self.interactionController = interactionController
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         addObservers()
+        setupDimmingView()
     }
     
     required init?(coder: NSCoder) {
@@ -30,6 +31,11 @@ public final class PresentationController: BasePresentationController {
     
     required init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
         fatalError("has not been implemented")
+    }
+    
+    // MARK: dimming view
+    private func setupDimmingView() {
+        self.dimmingView.backgroundColor = self.popupDescriptor.dimViewBackgroundColor
     }
 
     // MARK: setup presented frame
@@ -157,7 +163,7 @@ public class BasePresentationController: UIPresentationController {
     }
     
     // MARK: dimming view
-    private lazy var dimmingView: UIView = {
+    public lazy var dimmingView: UIView = {
         let dimmingView = UIView()
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
         dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
@@ -218,12 +224,12 @@ public class BasePresentationController: UIPresentationController {
     
     public override func containerViewWillLayoutSubviews() {
         super.containerViewWillLayoutSubviews()
-        print("containerViewWillLayoutSubviews")
+        //print("containerViewWillLayoutSubviews")
     }
     
     public override func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
-        print("presentationTransitionWillBegin")
+        //print("presentationTransitionWillBegin")
         if dimContainerViewWhenPresenting {
             addDimmingView()
             animateDimmingView(animation: .present)
@@ -232,12 +238,12 @@ public class BasePresentationController: UIPresentationController {
     
     public override func presentationTransitionDidEnd(_ completed: Bool) {
         super.presentationTransitionDidEnd(completed)
-        print("presentationTransitionDidEnd")
+        //print("presentationTransitionDidEnd")
     }
 
     public override func dismissalTransitionWillBegin() {
         super.dismissalTransitionWillBegin()
-        print("dismissalTransitionWillBegin")
+        //print("dismissalTransitionWillBegin")
         if dimContainerViewWhenPresenting {
             animateDimmingView(animation: .dismiss)
         }
@@ -250,6 +256,6 @@ public class BasePresentationController: UIPresentationController {
     
     public override func containerViewDidLayoutSubviews() {
         super.containerViewDidLayoutSubviews()
-        print("containerViewDidLayoutSubviews")
+        //print("containerViewDidLayoutSubviews")
     }
 }

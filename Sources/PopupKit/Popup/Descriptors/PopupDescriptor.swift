@@ -24,12 +24,13 @@ public enum PopupOrigin {
     case bottom
 }
 
-public enum PopupSize {
+public enum PopupSize: Equatable {
     case fullScreen
     case halfOfScreenHeight
     case thirdOfScreenHeight
     case quarterOfScreenHeight
     case minimumRequiredHeight
+    case fixedHeight(CGFloat)
 }
 
 public struct PopupDescriptor {
@@ -46,8 +47,10 @@ public struct PopupDescriptor {
     public var transitionAnimationStyle: TransitionAnimationStyle
     // background view
     public var dimContainerViewWhenPresenting: Bool?
+    public var dimViewBackgroundColor: UIColor
     
     public init() {
+        self.dimViewBackgroundColor = UIColor(white: 0.0, alpha: 0.5)
         self.transitionAnimationStyle = .bounce
         self.origin = .center
         self.size = .minimumRequiredHeight
