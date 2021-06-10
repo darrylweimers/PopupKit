@@ -14,6 +14,8 @@ This swift package aims to create interactive popups (dialog, toast, and more) a
 - add insets
 - dim background view when presenting
 
+![pop-up-kit-1](_Gifs/pop-up-kit-1.gif)![pop-up-kit-2](_Gifs/pop-up-kit-2.gif)![pop-up-kit-3](_Gifs/pop-up-kit-3.gif)
+
 ## Requirements
 
 - iOS 14.1+
